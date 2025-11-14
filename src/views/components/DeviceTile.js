@@ -1,28 +1,30 @@
-import { Switch, Text, View } from 'react-native';
+import React from "react";
+import { View, Text, Switch } from "react-native";
+import colors from "../../config/colors";
 
 export default function DeviceTile({ device, onToggle }) {
   return (
     <View
       style={{
-        backgroundColor: '#0f172a',
+        backgroundColor: colors.card,
         padding: 16,
         borderRadius: 12,
         marginBottom: 12,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        flexDirection: "row",
+        justifyContent: "space-between",
       }}
     >
       <View>
-        <Text style={{ color: 'white', fontSize: 16 }}>{device.name}</Text>
+        <Text style={{ color: colors.text, fontSize: 16 }}>{device.name}</Text>
 
-        {device.type === 'sensor' && (
-          <Text style={{ color: '#94a3b8' }}>
+        {device.type === "sensor" && (
+          <Text style={{ color: colors.textMuted }}>
             {device.value} {device.unit}
           </Text>
         )}
       </View>
 
-      {device.type === 'light' && (
+      {device.type === "light" && (
         <Switch value={device.isOn} onValueChange={onToggle} />
       )}
     </View>

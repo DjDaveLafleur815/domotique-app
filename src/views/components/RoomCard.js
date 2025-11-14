@@ -1,4 +1,6 @@
-import { Pressable, Text } from 'react-native';
+import React from "react";
+import { Pressable, Text } from "react-native";
+import colors from "../../config/colors";
 
 export default function RoomCard({ room, onPress }) {
   return (
@@ -6,15 +8,19 @@ export default function RoomCard({ room, onPress }) {
       onPress={onPress}
       style={{
         flex: 1,
-        backgroundColor: '#0f172a',
-        padding: 16,
+        backgroundColor: colors.card,
+        padding: 18,
         margin: 8,
         borderRadius: 16,
       }}
     >
       <Text style={{ fontSize: 32 }}>{room.icon}</Text>
-      <Text style={{ color: 'white', fontSize: 18, marginTop: 10 }}>{room.name}</Text>
-      <Text style={{ color: '#94a3b8' }}>{room.devices.length} équipements</Text>
+      <Text style={{ color: colors.text, fontSize: 18, fontWeight: "600", marginTop: 10 }}>
+        {room.name}
+      </Text>
+      <Text style={{ color: colors.textMuted, marginTop: 4 }}>
+        {room.devices.length} équipements
+      </Text>
     </Pressable>
   );
 }
